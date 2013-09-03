@@ -23,7 +23,7 @@ private {
 		"-nostdinc",
 		"-nostdinc++",
 		"-std=c++11" ,
-		"-I" ~ ku;_dir ~ "include" ,
+		"-I" ~ kul_dir ~ "include" ,
 	] ;
 }
 

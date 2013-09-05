@@ -27,6 +27,6 @@ private {
 	] ;
 }
 
-void buildPiLib(BuildSet tasks) {
-	tasks.addLLVMLib( abi_src , binDir ~ "libs/armabipp.bc" , intermediateDir , compileFlags ) ;	
+Resource buildPiLib(BuildSet tasks) {
+	return tasks.addLLVMLib( abi_src , bin_dir ~ "libs/armabipp.bc" , intermediate_dir , compileFlags ) ;	
 }

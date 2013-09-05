@@ -27,6 +27,6 @@ private {
 	] ;
 }
 
-Resource buildPiLib(BuildSet tasks) {
+Resource buildArmABI(BuildSet tasks) {
 	return tasks.addLLVMLib( abi_src , bin_dir ~ "libs/armabipp.bc" , intermediate_dir , compileFlags ) ;	
 }

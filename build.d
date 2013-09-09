@@ -5,6 +5,7 @@
 */
 module armabipp.build ;
 
+import std.path ;
 import tasel.tasel ;
 import tasel.ext.llvm ;
 import std.algorithm ;
@@ -14,8 +15,8 @@ import build_config ;
 
 private {
 	immutable string[] abi_src = [
-		armabipp_dir ~ "src/div.cpp" ,
-		armabipp_dir ~ "src/memset.cpp" ,
+		armabipp_dir.buildPath( "src/div.cpp" ) ,
+		armabipp_dir.buildPath( "src/memset.cpp" ) ,
 	] ;
 
 	immutable string[] compileFlags = [
@@ -23,10 +24,10 @@ private {
 		"-nostdinc",
 		"-nostdinc++",
 		"-std=c++11" ,
-		"-I" ~ kul_dir ~ "include" ,
+		"-I" ~ kul_dir.buildPath("include") ,
 	] ;
 }
 
 Resource buildArmABI(BuildSet tasks) {
-	return tasks.addLLVMLib( abi_src , bin_dir ~ "libs/armabipp.bc" , intermediate_dir , compileFlags ) ;	
+	return tasks.addLLVMLib( abi_src , bin_dir.buildPath( "libs/armabipp.bc" ) , intermediate_dir , compileFlags ) ;	
 }

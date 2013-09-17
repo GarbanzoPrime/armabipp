@@ -10,6 +10,8 @@ using namespace kul ;
 
 extern "C" {
 	int64_t __aeabi_uidivmod( unsigned int numerator, unsigned int denominator ) ;
+	uint32_t __aeabi_uidiv( unsigned int numerator , unsigned int denominator ) ;
+	uint32_t __umodsi3( uint32_t numerator , uint32_t denominator ) ;
 }
 
 struct uidiv_return {
@@ -20,6 +22,13 @@ struct uidiv_return {
 		return *reinterpret_cast<const int64_t*>(this) ; 
 	}
 } ;
+
+unsigned int __aeabi_uidiv( unsigned int numerator , unsigned int denominator ) {
+}
+
+uint32_t __umodsi3( uint32_t numerator , uint32_t denominator ) {
+	return 0 ;
+}
 
 int64_t __aeabi_uidivmod( unsigned int numerator, unsigned int denominator ) {
 		unsigned int x = denominator ;
